@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog Posts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <main class="container my-5">
+        <h1 class="mb-4">POSTS AVAILABLE</h1>
+        
+        {% if post %}
+            <div class="row">
+                {% for post in post %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <article class="card h-100">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: cover;">
+                        {% else %}
+                            <div class="alert alert-warning m-2">No image available</div>
+                        {% endif %}
+                        
+                        <div class="card-body">
+                            <h2 class="card-title h5">{{ post.title|title }}</h2>
+                            <p class="card-text">{{ post.description|striptags|truncatechars:100 }}</p>
+                            <time class="text-muted small">{{ post.date|date:'M d Y'|upper }}</time>
+                        </div>
+                        
+                        <div class="card-footer bg-transparent">
+                            <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary btn-sm">
+                                {{post.title}}
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                No posts available yet.
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>
+{% endblock %}

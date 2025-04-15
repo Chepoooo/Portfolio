@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Luis Colmenares - Portfolio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "css/main.css" %}'>
+    <script src='{% static "js/main.js" %}'></script>
+</head>
+<body>
+    <header class="row">
+        <div class="col-md-4">
+            {% if 'portmedia/pic.jpg' %}
+                <img src="{% static 'portmedia/pic.jpg' %}" class="img-fluid" alt="Luis Colmenares">
+            {% else %}
+                <div class="alert alert-warning">Imagen no encontrada</div>
+            {% endif %}
+        </div>
+        
+        <div class="col-md-8">
+            <h1>I am <strong>Luis Colmenares</strong></h1>
+            <h3>System Engineer</h3>
+            <p>I am committed to continuous learning and always seeking opportunities to expand my skills as a programmer while staying up to date with the latest technological trends. Alongside my experience in software development, I have over two years of expertise as an Appointment Setter and in the sales sector, 
+                allowing me to combine technical knowledge with strong communication and customer engagement skills</p>
+            
+            {% if 'portmedia/cvluis.pdf' %}
+                <a href="{% static 'portmedia/cvluis.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3" id="image1" download="CV_Luis_Colmenares.pdf">Download CV</a>
+            {% else %}
+                <div class="alert alert-danger">Error: CV no encontrado</div>
+            {% endif %}
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <h1>My Projects</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p>
+        
+        <div class="row">
+            {% for i in project %}
+            <div class="col-md-4 p-4">
+                <div class="card bg-black card-project">
+                    {% if i.image %}
+                        <img src="{{ i.image.url }}" alt='{{ i.title }}' class="card-img-top"/>
+                    {% else %}
+                        <div class="alert alert-warning">Imagen del proyecto no disponible</div>
+                    {% endif %}
+                    
+                    <div class="card-body">
+                        <h2>{{ i.title }}</h2>
+                        <p>{{ i.description }}</p>
+                        
+                        {% if i.url %}
+                            <a href="{{ i.url }}" class="btn btn-light rounded-0 btn-sm" target="_blank" rel="noopener noreferrer">
+                                View Project
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No projects available</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}

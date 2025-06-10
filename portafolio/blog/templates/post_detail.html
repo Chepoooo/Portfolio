@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-{% extends 'layout.html'%}
-{% block content %}
 
+{% extends 'layout.html'%}
+{% load static %}
+
+{% block content %}
 <html>
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>{{post.title}} | Luis Colmenares</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "css/post_detail.css" %}'>
 </head>
 <body>
     <div class="text-center">
-
         <h1>{{post.title}}</h1>
         <h2 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</h2>
       
+        {% if post.image %}
         <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
-      
+        {% endif %}
       
         <div class="my-4">
-      
-        {{post.description|safe}}
+            {{post.description|safe}}
         </div>
-      </div>
+        
+        
+    </div>
 </body>
 </html>
 {% endblock %}

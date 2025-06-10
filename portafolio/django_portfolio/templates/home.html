@@ -24,12 +24,22 @@
         
         <div class="col-md-8">
             <h1>I am <strong>Luis Colmenares</strong></h1>
-            <h3>System Engineer</h3>
-            <p>I am committed to continuous learning and always seeking opportunities to expand my skills as a programmer while staying up to date with the latest technological trends. Alongside my experience in software development, I have over two years of expertise as an Appointment Setter and in the sales sector, 
-                allowing me to combine technical knowledge with strong communication and customer engagement skills</p>
+            <h3>Systems Engineer</h3>
+            <p>Developer specializing in Python/Django/SQL with +2 years of customer-facing 
+                experience that informs my user-centric development approach, 
+                my work as a developer and sales/customer service gives me unique insight into creating technical 
+                solutions that address real business needs
+            </p>
+            <ul>
+                <li><i class="bi bi-server me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Backend Development</b>: Python (Django), Kotlin</li>
+                <li><i class="bi bi-database me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Database & Cloud</b>: SQL (PostgreSQL, MySQL), Firebase</li>
+                <li><i class="bi bi-code-slash me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Frontend Fundamentals</b>: HTML/CSS, JavaScript</li>
+                <li><i class="bi bi-telephone me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Sales & Support</b>: Cold calling, Appointment setting, Customer success</li>
+                
+            </ul>
             
             {% if 'portmedia/cvluis.pdf' %}
-                <a href="{% static 'portmedia/cvluis.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3" id="image1" download="CV_Luis_Colmenares.pdf">Download CV</a>
+                <a href="{% url 'download_cv' %}" class="btn btn-primary btn-lg rounded-0 my-3" id="image1" download="CV_Luis_Colmenares.pdf">Download CV</a>
             {% else %}
                 <div class="alert alert-danger">Error: CV no encontrado</div>
             {% endif %}
@@ -38,7 +48,7 @@
 
     <section class="container my-5">
         <h1>My Projects</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p>
+        <p>These are some projects I developed for previous roles as well as my own investments</p>
         
         <div class="row">
             {% for i in project %}
@@ -69,6 +79,47 @@
             {% endfor %}
         </div>
     </section>
+    <br>
+
+    <section class="container my-5">
+        <h1 class="text-center mb-4">Social Media</h1>
+        <p>Connect with me on social media</p>
+        <!-- centrado<p class="text-center mb-5">Connect with me on social media</p> -->
+        
+        <div class="row justify-content-center">
+            {% for social in socials %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">  
+                <div class="card social-card h-100">  
+                    {% if social.icon %}
+                        <div class="text-center p-3">  
+                            <img src="{{ social.icon.url }}" alt="{{ social.name }}" class="img-fluid social-icon">
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning m-2">Icono no disponible</div>
+                    {% endif %}
+                    
+                    <div class="card-body text-center">
+                        <h3 class="card-title h5">{{ social.name }}</h3>
+                        {% if social.url %}
+                            <div class="d-flex justify-content-center">
+                                <a href="{{ social.url }}" class="btn btn-primary btn-sm mt-2" target="_blank">
+                                    Visit Profile
+                                </a>
+                            </div>
+                            
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="container text-center my-5">
+        <p>&copy; 2025 Luis Colmenares. All rights reserved.</p>
+    </footer>
+        
+            
 </body>
 </html>
 {% endblock %}

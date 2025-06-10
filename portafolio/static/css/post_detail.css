@@ -1,0 +1,191 @@
+/* Estilos específicos para la página de detalle de post */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.text-center {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Estilos para el título del post */
+.text-center h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.text-center h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Estilos para la fecha */
+.text-center h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+/* Estilos para la imagen */
+.text-center img {
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.text-center img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el contenido del post */
+.text-center div {
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.text-center div p {
+    margin-bottom: 1.5rem;
+}
+
+.text-center div a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    border-bottom: 1px dashed var(--secondary-color);
+}
+
+.text-center div a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.text-center div h2,
+.text-center div h3,
+.text-center div h4 {
+    margin: 2rem 0 1rem;
+    color: var(--primary-color);
+}
+
+.text-center div h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.text-center div h3 {
+    font-size: 1.5rem;
+}
+
+.text-center div h4 {
+    font-size: 1.3rem;
+}
+
+.text-center div ul,
+.text-center div ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.text-center div li {
+    margin-bottom: 0.5rem;
+}
+
+.text-center div blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #636e72;
+}
+
+.text-center div pre {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow);
+}
+
+.text-center div code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Botón de volver atrás (puedes añadirlo en el HTML) */
+.back-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .text-center {
+        padding: 1.5rem 1rem;
+    }
+    
+    .text-center h1 {
+        font-size: 2rem;
+    }
+    
+    .text-center img {
+        max-height: 350px;
+    }
+    
+    .text-center div {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .text-center h1 {
+        font-size: 1.8rem;
+    }
+    
+    .text-center h2 {
+        font-size: 0.9rem;
+    }
+    
+    .text-center img {
+        max-height: 250px;
+    }
+}

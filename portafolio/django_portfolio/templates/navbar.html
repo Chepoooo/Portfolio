@@ -1,17 +1,19 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <!-- Cambiado a navbar-dark y bg-dark -->
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold fst-italic" href="/">RR</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand home-btn fw-bold fst-italic" href="/">HOME</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/blog/post">Blog</a>
+          <a class="nav-link blogs-btn fw-bold fst-italic" href="/blog/post">BLOGS</a> 
         </li>
-        <li class="nav-item d-flex aling-items-center">
-          <a class="btn btn-primary btn-sm" href="{% static 'portmedia/cvluis.pdf' %}" target="_blank">Download CV</a>
+        <li class="nav-item">
+          <a class="github-btn btn btn-sm" href="https://github.com/Chepoooo" target="_blank">
+            <i class="bi bi-github"></i> Github
+          </a>
         </li>
       </ul>
     </div>

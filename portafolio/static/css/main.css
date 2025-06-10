@@ -1,0 +1,325 @@
+:root {
+    --primary-color: #3a4a5f;  /* Color primario más claro */
+    --secondary-color: #1a9fff; /* Azul más vibrante */
+    --accent-color: #00cec9;
+    --text-color: #2d3436;
+    --light-text: #ffffff;      /* Blanco puro para mejor contraste */
+    --bg-color: #f5f6fa;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --text-on-dark: rgba(255, 255, 255, 0.98); /* Texto casi totalmente opaco */
+    --header-gradient: linear-gradient(135deg, #4b6cb7 0%, #6dd5ed 100%); /* Gradiente más claro y moderno */
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(228, 229, 236);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Header styles - Gradiente más claro */
+header {
+    background: var(--header-gradient);
+    color: var(--light-text);
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de luminosidad adicional */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    z-index: 0;
+}
+
+header > * {
+    position: relative;
+    z-index: 1;
+}
+
+header img {
+    border-radius: 15px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    max-height: 300px;
+    object-fit: cover;
+}
+
+header img:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 strong {
+    color: var(--accent-color);
+}
+
+header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Texto perfectamente legible */
+header p {
+    color: var(--light-text); /* Usamos blanco puro */
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+}
+
+/* Botones */
+.btn {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 50px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de proyectos */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.container h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.container p {
+    margin-bottom: 2rem;
+    color: #636e72;
+}
+
+/* Cards de proyectos */
+.card-project {
+    border: none !important;
+    border-radius: 15px !important;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg) !important;
+    box-shadow: var(--shadow);
+}
+
+.card-project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-project img {
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.card-project:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.card-body p {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    color: #636e72;
+}
+
+.card-body .btn {
+    align-self: flex-start;
+}
+
+/* Alertas */
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Efectos y animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.row > div {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.row > div:nth-child(1) { animation-delay: 0.1s; }
+.row > div:nth-child(2) { animation-delay: 0.3s; }
+.row > div:nth-child(3) { animation-delay: 0.5s; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    
+    header img {
+        margin-bottom: 1.5rem;
+        max-height: 250px;
+    }
+    
+    header p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .col-md-4, .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .card-project {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .container h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Estilos para tarjetas de redes sociales - con animaciones */
+.social-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: var(--shadow);
+    background-color: var(--card-bg);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Animación de aparición escalonada */
+.row > .col-lg-3:nth-child(1) .social-card { animation-delay: 0.1s; }
+.row > .col-lg-3:nth-child(2) .social-card { animation-delay: 0.2s; }
+.row > .col-lg-3:nth-child(3) .social-card { animation-delay: 0.3s; }
+.row > .col-lg-3:nth-child(4) .social-card { animation-delay: 0.4s; }
+
+/* Efecto hover igual que proyectos */
+.social-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación para el ícono */
+.social-icon {
+    transition: transform 0.4s ease;
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.social-card:hover .social-icon {
+    transform: scale(1.1);
+}
+
+/* Definición de la animación fadeInUp */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

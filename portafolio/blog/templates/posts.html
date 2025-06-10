@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Blog Posts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/posts.css' %}">
     <script src="{% static 'js/main.js' %}"></script>
 </head>
 <body>
@@ -44,7 +44,8 @@
             </div>
         {% else %}
             <div class="alert alert-info">
-                No posts available yet.
+                <h2>No posts available</h2>
+                <p>Check back later for updates! Yes sir!!</p>
             </div>
         {% endif %}
     </main>

@@ -77,8 +77,14 @@ WSGI_APPLICATION = 'portafolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'chepo$default',  # Nombre de tu DB en PythonAnywhere
+        'USER': 'chepo',          # Tu nombre de usuario
+        'PASSWORD': '21052002luism',     # La contraseña que creaste
+        'HOST': 'chepo.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 

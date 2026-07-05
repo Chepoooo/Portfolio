@@ -30,12 +30,12 @@
 
             <div class="d-flex gap-3 mt-4">
 
-                <a href="{% url 'download_cv' %}"
-                   class="btn btn-primary btn-lg">
+                <a href="{% static 'portmedia/cv_luis.pdf' %}"
+                    class="btn btn-primary btn-lg"
+                    download="Luis_Colmenares_CV.pdf">
                     <i class="bi bi-download"></i>
                     Download CV
                 </a>
-
                 <a href="#projects"
                    class="btn btn-outline-light btn-lg">
                     View Projects
@@ -57,52 +57,81 @@
 </section>
 
 
-<!-- Skills -->
 
-<section class="py-5">
+<section class="container my-5">
 
-    <h2 class="text-center mb-5 fw-bold">
-        Technical Skills
+    <h2 class="text-center fw-bold mb-2">
+        Core Skills
     </h2>
+
+    <p class="text-center text-secondary mb-5">
+        A combination of software development, technical support and customer-facing expertise.
+    </p>
 
     <div class="row g-4">
 
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 bg-dark border-secondary">
+        <!-- Backend -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 bg-dark border-secondary skill-card">
                 <div class="card-body text-center">
-                    <i class="bi bi-server fs-1"></i>
-                    <h4 class="mt-3">Backend</h4>
-                    <p>Python, Django, REST APIs</p>
+                    <i class="bi bi-server fs-1 text-primary"></i>
+                    <h4 class="mt-3">Backend Development</h4>
+                    <p>Python, Django, REST APIs, Node.js</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 bg-dark border-secondary">
+        <!-- Databases -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 bg-dark border-secondary skill-card">
                 <div class="card-body text-center">
-                    <i class="bi bi-database fs-1"></i>
+                    <i class="bi bi-database fs-1 text-success"></i>
                     <h4 class="mt-3">Databases</h4>
-                    <p>PostgreSQL, MySQL, SQLite</p>
+                    <p>PostgreSQL, MySQL, SQLite, Database Design</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 bg-dark border-secondary">
+        <!-- Frontend -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 bg-dark border-secondary skill-card">
                 <div class="card-body text-center">
-                    <i class="bi bi-git fs-1"></i>
-                    <h4 class="mt-3">Version Control</h4>
-                    <p>Git, GitHub, Branching</p>
+                    <i class="bi bi-code-slash fs-1 text-info"></i>
+                    <h4 class="mt-3">Frontend Development</h4>
+                    <p>HTML, CSS, JavaScript, React, Bootstrap</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 bg-dark border-secondary">
+        <!-- Technical Support -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 bg-dark border-secondary skill-card">
                 <div class="card-body text-center">
-                    <i class="bi bi-code-slash fs-1"></i>
-                    <h4 class="mt-3">Frontend</h4>
-                    <p>HTML, CSS, JavaScript</p>
+                    <i class="bi bi-tools fs-1 text-warning"></i>
+                    <h4 class="mt-3">Technical Support</h4>
+                    <p>API Troubleshooting, Webhooks, Call Routing, Debugging, Customer Support</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sales & Customer Success -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 bg-dark border-secondary skill-card">
+                <div class="card-body text-center">
+                    <i class="bi bi-people fs-1 text-danger"></i>
+                    <h4 class="mt-3">Sales & Customer Success</h4>
+                    <p>Appointment Setting, CRM, Lead Qualification, Customer Success, Client Communication</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cloud & Tools -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 bg-dark border-secondary skill-card">
+                <div class="card-body text-center">
+                    <i class="bi bi-cloud fs-1 text-primary"></i>
+                    <h4 class="mt-3">Cloud & Development Tools</h4>
+                    <p>Git, GitHub, Firebase, Railway, Clerk, Linux</p>
                 </div>
             </div>
         </div>
@@ -110,9 +139,6 @@
     </div>
 
 </section>
-
-
-<section class="py-5">
 
     <h2 class="text-center fw-bold mb-5">
         Professional Experience
@@ -221,7 +247,7 @@
     </div>
 
 </section>
-                        campaign optimization and technical problem resolution.
+                        
                     </p>
                 </div>
             </div>
@@ -232,7 +258,7 @@
 
 </section>
 
-<!--here are my projects aware here-->
+<!--here are my projects aware herebrotherrrr-->
 
 <section class="container my-5" id="projects">
 
@@ -269,17 +295,13 @@
 
                     <div class="mb-3">
 
-                        <span class="badge bg-primary">
-                            Python
-                        </span>
+                        {% for tech in i.technologies.all %}
 
-                        <span class="badge bg-success">
-                            Django
-                        </span>
+                            <span class="badge bg-primary me-1">
+                                {{ tech.name }}
+                            </span>
 
-                        <span class="badge bg-secondary">
-                            SQL
-                        </span>
+                        {% endfor %}
 
                     </div>
 
@@ -319,4 +341,79 @@
 
 </section>
 
+<!-- mi contacto section -->
+<section class="container my-5" id="contact">
+
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Let's Connect</h2>
+        <p class="text-secondary">
+            I'm always open to discussing new opportunities, freelance projects,
+            or simply connecting if you have anything to say.
+        </p>
+    </div>
+
+    <div class="row justify-content-center g-4">
+
+        <!-- Email -->
+        <div class="col-md-4">
+            <div class="card h-100 bg-dark border-secondary text-center">
+                <div class="card-body">
+                    <i class="bi bi-envelope-fill fs-1 text-primary"></i>
+                    <h4 class="mt-3">Email</h4>
+
+                    <p class="text-light">
+                        mrluisgamerps3@gmail.com
+                    </p>
+
+                    <a href="mailto:mrluisgamerps3@gmail.com"
+                       class="btn btn-primary">
+                        Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-4">
+            <div class="card h-100 bg-dark border-secondary text-center">
+                <div class="card-body">
+                    <i class="bi bi-telephone-fill fs-1 text-success"></i>
+                    <h4 class="mt-3">Phone</h4>
+
+                    <p class="text-light">
+                        +58 424 655 1041
+                    </p>
+
+                    <a href="https://wa.me/584246551041"
+                       target="_blank"
+                       class="btn btn-success">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="col-md-4">
+            <div class="card h-100 bg-dark border-secondary text-center">
+                <div class="card-body">
+                    <i class="bi bi-instagram fs-1 text-danger"></i>
+                    <h4 class="mt-3">Instagram</h4>
+
+                    <p class="text-light">
+                        @luismcolmenares_
+                    </p>
+
+                    <a href="https://www.instagram.com/luismcolmenares_/?hl=es"
+                       target="_blank"
+                       class="btn btn-danger">
+                        Follow Me
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
 {% endblock %}

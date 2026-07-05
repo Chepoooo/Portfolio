@@ -1,419 +1,129 @@
+<!DOCTYPE html>
 {% extends 'layout.html' %}
 {% load static %}
 
 {% block content %}
-
-<section class="hero-section py-5">
-    <div class="row align-items-center">
-
-        <div class="col-lg-7">
-
-            <span class="badge bg-primary mb-3 fs-6">
-                Available for opportunities
-            </span>
-
-            <h1 class="display-3 fw-bold mb-3">
-                Luis Colmenares
-            </h1>
-
-            <h2 class="mb-4" style="color:#58a6ff;">
-                Backend Developer | Systems Engineer
-            </h2>
-
-            <p class="lead">
-                Systems Engineer and Software Developer with experience 
-                building web applications using Python, Django, SQL, JavaScript, and 
-                cloud based technologies. My background in customer success, sales, and SaaS support 
-                allows me to bridge the gap between business needs and technical 
-                solutions.
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Luis Colmenares - Portfolio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "css/main.css" %}'>
+    <script src='{% static "js/main.js" %}'></script>
+</head>
+<body>
+    <header class="row">
+        <div class="col-md-4">
+            {% if 'portmedia/pic.jpg' %}
+                <img src="{% static 'portmedia/pic.jpg' %}" class="img-fluid" alt="Luis Colmenares">
+            {% else %}
+                <div class="alert alert-warning">Imagen no encontrada</div>
+            {% endif %}
+        </div>
+        
+        <div class="col-md-8">
+            <h1>I am <strong>Luis Colmenares</strong></h1>
+            <h3>Systems Engineer</h3>
+            <p>Developer specializing in Python/Django/SQL with +2 years of customer-facing 
+                experience that informs my user-centric development approach, 
+                my work as a developer and sales/customer service gives me unique insight into creating technical 
+                solutions that address real business needs
             </p>
-
-            <div class="d-flex gap-3 mt-4">
-
-                <a href="{% static 'portmedia/cv_luis.pdf' %}"
-                    class="btn btn-primary btn-lg"
-                    download="Luis_Colmenares_CV.pdf">
-                    <i class="bi bi-download"></i>
-                    Download CV
-                </a>
-                <a href="#projects"
-                   class="btn btn-outline-light btn-lg">
-                    View Projects
-                </a>
-
-            </div>
-
+            <ul>
+                <li><i class="bi bi-server me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Backend Development</b>: Python (Django), Kotlin</li>
+                <li><i class="bi bi-database me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Database & Cloud</b>: SQL (PostgreSQL, MySQL), Firebase</li>
+                <li>
+                    <i class="bi bi-git me-2" style="font-size: 1.2em; vertical-align: middle;"></i>
+                    <b>Git/GitHub</b>: Version control, branching, collaboration, code review
+                </li>
+                <li><i class="bi bi-code-slash me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Frontend Fundamentals</b>: HTML/CSS, JavaScript</li>
+                <li><i class="bi bi-telephone me-2" style="font-size: 1.2em; vertical-align: middle;"></i> <b>Sales & Support</b>: Cold calling, Appointment setting, Customer success</li>
+                
+            </ul>
+            
+            {% if 'portmedia/cvluis.pdf' %}
+                <a href="{% url 'download_cv' %}" class="btn btn-primary btn-lg rounded-0 my-3" id="image1" download="CV_Luis_Colmenares.pdf">Download CV</a>
+            {% else %}
+                <div class="alert alert-danger">Error: CV no encontrado</div>
+            {% endif %}
         </div>
+    </header>
 
-        <div class="col-lg-5 text-center mt-5 mt-lg-0">
-
-            <img src="{% static 'portmedia/pic.jpg' %}"
-                 alt="Luis Colmenares"
-                 class="img-fluid rounded-circle shadow-lg profile-image">
-
-        </div>
-
-    </div>
-</section>
-
-
-
-<section class="container my-5">
-
-    <h2 class="text-center fw-bold mb-2">
-        Core Skills
-    </h2>
-
-    <p class="text-center text-secondary mb-5">
-        A combination of software development, technical support and customer-facing expertise.
-    </p>
-
-    <div class="row g-4">
-
-        <!-- Backend -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 bg-dark border-secondary skill-card">
-                <div class="card-body text-center">
-                    <i class="bi bi-server fs-1 text-primary"></i>
-                    <h4 class="mt-3">Backend Development</h4>
-                    <p>Python, Django, REST APIs, Node.js</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Databases -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 bg-dark border-secondary skill-card">
-                <div class="card-body text-center">
-                    <i class="bi bi-database fs-1 text-success"></i>
-                    <h4 class="mt-3">Databases</h4>
-                    <p>PostgreSQL, MySQL, SQLite, Database Design</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Frontend -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 bg-dark border-secondary skill-card">
-                <div class="card-body text-center">
-                    <i class="bi bi-code-slash fs-1 text-info"></i>
-                    <h4 class="mt-3">Frontend Development</h4>
-                    <p>HTML, CSS, JavaScript, React, Bootstrap</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technical Support -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 bg-dark border-secondary skill-card">
-                <div class="card-body text-center">
-                    <i class="bi bi-tools fs-1 text-warning"></i>
-                    <h4 class="mt-3">Technical Support</h4>
-                    <p>API Troubleshooting, Webhooks, Call Routing, Debugging, Customer Support</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sales & Customer Success -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 bg-dark border-secondary skill-card">
-                <div class="card-body text-center">
-                    <i class="bi bi-people fs-1 text-danger"></i>
-                    <h4 class="mt-3">Sales & Customer Success</h4>
-                    <p>Appointment Setting, CRM, Lead Qualification, Customer Success, Client Communication</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cloud & Tools -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 bg-dark border-secondary skill-card">
-                <div class="card-body text-center">
-                    <i class="bi bi-cloud fs-1 text-primary"></i>
-                    <h4 class="mt-3">Cloud & Development Tools</h4>
-                    <p>Git, GitHub, Firebase, Railway, Clerk, Linux</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-    <h2 class="text-center fw-bold mb-5">
-        Professional Experience
-    </h2>
-
-    <div class="row g-4">
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card experience-card h-100">
-                <div class="card-body">
-                    <h4 class="text-primary fw-bold">
-                        Web Development
-                    </h4>
-
-                    <p>
-                        I developed web applications using Python, Django, SQL and REST APIs.
-                        Focused on building scalable backend solutions, database design,
-                        authentication systems and business oriented applications.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card experience-card h-100">
-                <div class="card-body">
-                    <h4 class="text-success fw-bold">
-                        Appointment Setting
-                    </h4>
-
-                    <p>
-                        I managed outbound campaigns, qualified leads and scheduled appointments.
-                        I have experience in CRM systems, cold calling and customer engagement strategies.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card experience-card h-100">
-                <div class="card-body">
-                    <h4 class="text-warning fw-bold">
-                        Amazon PPC Specialist
-                    </h4>
-
-                    <p>
-                        I managed Amazon advertising campaigns, keyword research,
-                        bid optimization and performance analysis to improve
-                        product visibility and advertising ROI.
-                    </p>
-                </div>
-            </div>
-        </div>
-
+    <section class="container my-5">
+        <h1>My Projects</h1>
+        <p>These are some projects I developed for previous roles as well as my own investments</p>
         
-        <div class="col-md-6 col-lg-4">
-          <div class="card experience-card h-100">
+        <div class="row">
+            {% for i in project %}
+            <div class="col-md-4 p-4">
+                <div class="card bg-black card-project">
+                    {% if i.image %}
+                        <img src="{{ i.image.url }}" alt='{{ i.title }}' class="card-img-top"/>
+                    {% else %}
+                        <div class="alert alert-warning">Imagen del proyecto no disponible</div>
+                    {% endif %}
+                    
                     <div class="card-body">
-                        <h4 class="text-info fw-bold">
-                            English Teacher
-                        </h4>
-
-                        <p>
-                            I designed conversational English lessons and helped students
-                            improve speaking confidence, pronunciation and fluency through
-                            practical communication exercises.
-                        </p>
-                    </div>
-                </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <div class="card experience-card h-100">
-                <div class="card-body">
-                    <h4 class="text-danger fw-bold">
-                        Customer Success Manager (AI)
-                    </h4>
-
-                    <p>
-                        I supported clients using AI powered communication platforms.
-                        Assisted with troubleshooting, call flow configuration,
-                        campaign optimization and technical problem resolution.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card experience-card h-100">
-                <div class="card-body">
-                    <h4 class="text-danger fw-bold">
-                        Databases Professor
-                    </h4>
-
-                    <p>
-                          I taught database fundamentals to undergraduate Computer Science students,
-                            covering SQL, relational and non relational databases, CRUD operations,
-                            data modeling, normalization and database relationships.  I my Guided students
-                            through projects focused on designing, querying and managing
-                            real world database systems.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-</section>
+                        <h2>{{ i.title }}</h2>
+                        <p>{{ i.description }}</p>
                         
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-
-    </div>
-
-</section>
-
-<!--here are my projects aware herebrotherrrr-->
-
-<section class="container my-5" id="projects">
-
-    <div class="text-center mb-5">
-        <h2 class="fw-bold">Featured Projects</h2>
-        <p class="text-secondary">
-            A collection of applications built with Python, JavaScript, Django, SQL databases and modern web technologies.
-        </p>
-    </div>
-
-    <div class="row g-4">
-
-        {% for i in project %}
-
-        <div class="col-lg-4 col-md-6">
-
-            <div class="card bg-dark border-secondary h-100 shadow-sm card-project">
-
-                {% if i.image %}
-                    <img src="{{ i.image.url }}"
-                         alt="{{ i.title }}"
-                         class="card-img-top">
-                {% endif %}
-
-                <div class="card-body d-flex flex-column">
-
-                    <h4 class="fw-bold mb-3">
-                        {{ i.title }}
-                    </h4>
-
-                    <p class="text-light">
-                        {{ i.description }}
-                    </p>
-
-                    <div class="mb-3">
-
-                        {% for tech in i.technologies.all %}
-
-                            <span class="badge bg-primary me-1">
-                                {{ tech.name }}
-                            </span>
-
-                        {% endfor %}
-
-                    </div>
-
-                    <div class="mt-auto">
-
                         {% if i.url %}
-                        <a href="{{ i.url }}"
-                           class="btn btn-outline-light w-100"
-                           target="_blank"
-                           rel="noopener noreferrer">
-
-                            <i class="bi bi-github me-2"></i>
-                            View Source Code
-
-                        </a>
+                            <a href="{{ i.url }}" class="btn btn-light rounded-0 btn-sm" target="_blank" rel="noopener noreferrer">
+                                View Project
+                            </a>
                         {% endif %}
-
                     </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        {% empty %}
-
-        <div class="col-12">
-            <div class="alert alert-info text-center">
-                No projects available at the moment.
-            </div>
-        </div>
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-<!-- mi contacto section -->
-<section class="container my-5" id="contact">
-
-    <div class="text-center mb-5">
-        <h2 class="fw-bold">Let's Connect</h2>
-        <p class="text-secondary">
-            I'm always open to discussing new opportunities, freelance projects,
-            or simply connecting if you have anything to say.
-        </p>
-    </div>
-
-    <div class="row justify-content-center g-4">
-
-        <!-- Email -->
-        <div class="col-md-4">
-            <div class="card h-100 bg-dark border-secondary text-center">
-                <div class="card-body">
-                    <i class="bi bi-envelope-fill fs-1 text-primary"></i>
-                    <h4 class="mt-3">Email</h4>
-
-                    <p class="text-light">
-                        mrluisgamerps3@gmail.com
-                    </p>
-
-                    <a href="mailto:mrluisgamerps3@gmail.com"
-                       class="btn btn-primary">
-                        Send Email
-                    </a>
                 </div>
             </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">No projects available</div>
+            </div>
+            {% endfor %}
         </div>
+    </section>
+    <br>
 
-        <!-- Phone -->
-        <div class="col-md-4">
-            <div class="card h-100 bg-dark border-secondary text-center">
-                <div class="card-body">
-                    <i class="bi bi-telephone-fill fs-1 text-success"></i>
-                    <h4 class="mt-3">Phone</h4>
-
-                    <p class="text-light">
-                        +58 424 655 1041
-                    </p>
-
-                    <a href="https://wa.me/584246551041"
-                       target="_blank"
-                       class="btn btn-success">
-                        WhatsApp
-                    </a>
+    <section class="container my-5">
+        <h1 class="text-center mb-4">Social Media</h1>
+        <p>Connect with me on social media</p>
+        <!-- centrado<p class="text-center mb-5">Connect with me on social media</p> -->
+        
+        <div class="row justify-content-center">
+            {% for social in socials %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">  
+                <div class="card social-card h-100">  
+                    {% if social.icon %}
+                        <div class="text-center p-3">  
+                            <img src="{{ social.icon.url }}" alt="{{ social.name }}" class="img-fluid social-icon">
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning m-2">Icono no disponible</div>
+                    {% endif %}
+                    
+                    <div class="card-body text-center">
+                        <h3 class="card-title h5">{{ social.name }}</h3>
+                        {% if social.url %}
+                            <div class="d-flex justify-content-center">
+                                <a href="{{ social.url }}" class="btn btn-primary btn-sm mt-2" target="_blank">
+                                    Visit Profile
+                                </a>
+                            </div>
+                            
+                        {% endif %}
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
+    </section>
 
-        <!-- Instagram -->
-        <div class="col-md-4">
-            <div class="card h-100 bg-dark border-secondary text-center">
-                <div class="card-body">
-                    <i class="bi bi-instagram fs-1 text-danger"></i>
-                    <h4 class="mt-3">Instagram</h4>
-
-                    <p class="text-light">
-                        @luismcolmenares_
-                    </p>
-
-                    <a href="https://www.instagram.com/luismcolmenares_/?hl=es"
-                       target="_blank"
-                       class="btn btn-danger">
-                        Follow Me
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
+    <footer class="container text-center my-5">
+        <p>&copy; 2025 Luis Colmenares. All rights reserved.</p>
+    </footer>
+        
+            
+</body>
+</html>
 {% endblock %}
